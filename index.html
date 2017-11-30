@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue"></script>
+  <title>Vue.jsで作るスロットマシーン</title>
+</head>
+<body>
+
+  <div id="app">
+    <div class="slot">
+      <div class="panel" v-for="(panel, i) in panels">
+        <img :class="{ unmatched: !panel.matched }" :src="panel.img" width="90" height="110">
+        <div class="stop" :class="{ inactive: panel.pushed }" @click="stop(i)">STOP</div>
+      </div>
+    </div>
+    <div id="spin" :class="{ inactive: running }" @click="spin">SPIN</div>
+  </div>
+
+  <script src="vue.js"></script>
+</body>
+</html>
